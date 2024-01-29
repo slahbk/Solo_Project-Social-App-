@@ -20,4 +20,8 @@ const fetchAllUsers = async () => {
     return await User.findAll()
 }
 
-module.exports = {fetchAllUsers}
+const addUser = (data) => {
+    return User.build(data)
+}
+
+module.exports = {fetchAllUsers, addUser}
