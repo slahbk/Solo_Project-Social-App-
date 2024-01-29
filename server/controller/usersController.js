@@ -44,4 +44,15 @@ const deletOneUser = (req, res) => {
     })
 }
 
-module.exports = {getAll, addOneUser, editUser, deletOneUser}
+const getOneUser = async (req, res) => {
+    const id = req.params.id
+    await model.fetchOneUser(id)
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).json(err)
+    })
+}
+
+module.exports = {getAll, addOneUser, editUser, deletOneUser, getOneUser}
