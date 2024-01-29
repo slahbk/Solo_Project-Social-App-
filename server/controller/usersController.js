@@ -21,4 +21,16 @@ const addOneUser = (req, res) => {
     })
 }
 
-module.exports = {getAll, addOneUser}
+const editUser = (req, res) => {
+    const id = req.params.id
+    const data = req.body
+    model.updateUser(id, data)
+    .then((result)=>{
+        res.status(201).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).json(err)
+    })
+}
+
+module.exports = {getAll, addOneUser, editUser}
