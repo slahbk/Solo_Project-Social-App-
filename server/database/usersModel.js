@@ -20,6 +20,10 @@ const fetchAllUsers = async () => {
     return await User.findAll()
 }
 
+const fetchOneUser = async (id) => {
+    return await User.findOne({where:{id: id}})
+}
+
 const addUser = (data) => {
     return User.build(data)
 }
@@ -32,4 +36,4 @@ const updateUser = (id, data) => {
     return User.update(data, {where:{id: id}})
 }
 
-module.exports = {fetchAllUsers, addUser, deletUser, updateUser}
+module.exports = {fetchAllUsers, addUser, deletUser, updateUser, fetchOneUser}
