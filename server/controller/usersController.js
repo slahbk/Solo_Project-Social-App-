@@ -33,4 +33,15 @@ const editUser = (req, res) => {
     })
 }
 
-module.exports = {getAll, addOneUser, editUser}
+const deletOneUser = (req, res) => {
+    const id = req.params.id
+    model.deletUser(id)
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).json(err)
+    })
+}
+
+module.exports = {getAll, addOneUser, editUser, deletOneUser}
