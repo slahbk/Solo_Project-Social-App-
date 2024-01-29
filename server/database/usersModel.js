@@ -25,7 +25,7 @@ const fetchOneUser = async (id) => {
 }
 
 const addUser = (data) => {
-    return User.build(data)
+    return User.create(data)
 }
 
 const deletUser = (id) => {

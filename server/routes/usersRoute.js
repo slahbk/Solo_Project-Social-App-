@@ -7,6 +7,8 @@ router.get('/fetch/:id', controller.getOneUser)
 
 router.post('/add', controller.addOneUser)
 
-router.put('/update', controller.editUser)
+router.put('/update/:id', controller.editUser)
 
-router.delete('/delete', controller.deletOneUser)
+router.delete('/delete/:id', controller.deletOneUser)
+
+module.exports = router
