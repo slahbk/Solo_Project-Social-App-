@@ -22,4 +22,15 @@ const addOnePost = (req, res) => {
     })
 }
 
-module.exports = {getAllPosts, addOnePost}
+const deletOnePost = (req, res) => {
+    const id = req.params.id
+    model.delet(id)
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).json(err)
+    })
+}
+
+module.exports = {getAllPosts, addOnePost, deletOnePost}
