@@ -28,4 +28,8 @@ const deletUser = (id) => {
     return User.destroy({where:{id: id}})
 }
 
-module.exports = {fetchAllUsers, addUser, deletUser}
+const updateUser = (id, data) => {
+    return User.update(data, {where:{id: id}})
+}
+
+module.exports = {fetchAllUsers, addUser, deletUser, updateUser}
