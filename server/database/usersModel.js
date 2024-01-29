@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize')
 const db = require('./index')
-const posts = require('./postsModel')
+const  {Post}  = require('./postsModel')
 
 const userSchema = {
     id: {
@@ -15,18 +15,21 @@ const userSchema = {
 
 const User = db.define('users', userSchema)
 
-User.hasMany(posts)
-posts.belongsTo(User)
+User.hasMany(Post, {
+    foreignKey: 'userId'
+})
 
 User.sync()
-posts.sync()
+Post.sync()
 
 const fetchAllUsers = async () => {
     return await User.findAll()
 }
 
 const fetchOneUser = async (id) => {
-    return await User.findOne({where:{id: id}})
+    return await User.findByPk(id, {
+        include: Post
+    })
 }
 
 const addUser = (data) => {
@@ -39,6 +42,6 @@ const deletUser = (id) => {
 
 const updateUser = (id, data) => {
     return User.update(data, {where:{id: id}})
-}
+} 
 
 module.exports = {fetchAllUsers, addUser, deletUser, updateUser, fetchOneUser}
