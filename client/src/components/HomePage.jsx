@@ -5,14 +5,14 @@ const HomePage = () => {
 
     const [data, setData] = useState([])
 
-    useEffect(()=>{
-        axios("")
-    }, [])
+    // useEffect(()=>{
+    //     axios("")
+    // }, [])
 
   return (
     <div>
         <nav>
-
+            <button >profil</button>
         </nav>
 
     </div>

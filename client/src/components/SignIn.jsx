@@ -13,7 +13,7 @@ const SignIn = (props) => {
             return (e.username === data.username) && (e.password === data.password)
           })
           if(check.length) {
-            props.changeView('home')
+            props.changeView('home', username)
           }
           else alert('wrong username or password!!')
         })

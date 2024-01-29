@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize')
 const db = require('./index')
+const posts = require('./postsModel')
 
 const userSchema = {
     id: {
@@ -14,7 +15,11 @@ const userSchema = {
 
 const User = db.define('users', userSchema)
 
+User.hasMany(posts)
+posts.belongsTo(User)
+
 User.sync()
+posts.sync()
 
 const fetchAllUsers = async () => {
     return await User.findAll()
