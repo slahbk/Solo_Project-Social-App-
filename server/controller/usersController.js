@@ -1,6 +1,6 @@
 const model = require('../database/usersModel')
 
-const getAll = async (req, res) => {
+const getAllUsers = async (req, res) => {
     await model.fetchAllUsers()
     .then((result)=>{
         res.status(200).json(result)
@@ -55,4 +55,4 @@ const getOneUser = async (req, res) => {
     })
 }
 
-module.exports = {getAll, addOneUser, editUser, deletOneUser, getOneUser}
+module.exports = {getAllUsers, addOneUser, editUser, deletOneUser, getOneUser}
