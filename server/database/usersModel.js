@@ -15,3 +15,4 @@ const userSchema = {
 const User = db.define('users', userSchema)
 
 User.sync()
+
