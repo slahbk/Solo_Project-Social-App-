@@ -24,4 +24,8 @@ const addUser = (data) => {
     return User.build(data)
 }
 
-module.exports = {fetchAllUsers, addUser}
+const deletUser = (id) => {
+    return User.destroy({where:{id: id}})
+}
+
+module.exports = {fetchAllUsers, addUser, deletUser}
