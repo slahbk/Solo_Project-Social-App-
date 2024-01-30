@@ -13,6 +13,7 @@ const SignIn = (props) => {
             return (e.username === data.username) && (e.password === data.password)
           })
           if(check.length) {
+            window.localStorage.setItem("id", check[0].id)
             props.changeView('home', username)
           }
           else alert('wrong username or password!!')

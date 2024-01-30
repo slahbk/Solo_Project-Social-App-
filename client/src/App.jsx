@@ -4,26 +4,27 @@ import SignIn from './components/SignIn.jsx'
 import SignUp from './components/SignUp.jsx'
 import HomePage from './components/HomePage.jsx'
 import axios from 'axios'
+import ProfilePage from './components/ProfilePage.jsx'
 
 
 const App = () => {
   const [view, setView] = useState('signin')
   const [user, setUser] = useState('')
   
-  const changeView = (view, user) => {
+  const changeView = (view) => {
     setView(view)
-    setUser(user)
+    // setUser(user)
   }
   
   const renderView = () => {
-    if(view === 'signin'){
+    if((view === 'signin') && (!localStorage.getItem("id"))){
       return <SignIn changeView={changeView}/>
     }
     else if(view === 'signup'){
       return <SignUp changeView={changeView}/>
     }
-    else if(view === 'home'){
-      return <HomePage user={user}/>
+    else if((view === 'home') || (localStorage.getItem("id"))){
+      return <HomePage user={user} changeView={changeView}/>
     }
   }
   

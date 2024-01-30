@@ -19,7 +19,7 @@ const getAll = async () => {
 }
 
 const add = async (id, data) => {
-    return Post.create({userId: id , body: data.body, image: data.image},)
+    return Post.create({userId: id , body: data.body, image: data.image})
 }
 
 const delet = (id) => {

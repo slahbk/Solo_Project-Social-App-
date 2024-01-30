@@ -6,4 +6,8 @@ router.get('/fetch', controller.getAllPosts)
 
 router.post('/add/:id', controller.addOnePost)
 
+router.put('/edit/:id', controller.updateOnePost)
+
+router.delete('/delete/:id', controller.deletOnePost)
+
 module.exports = router
