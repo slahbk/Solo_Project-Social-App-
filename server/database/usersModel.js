@@ -32,6 +32,10 @@ const fetchOneUser = async (id) => {
     })
 }
 
+const fetchOneUseByName = async (name) => {
+    return await User.findOne({where:{username: name}, include: Post})
+}
+
 const addUser = (data) => {
     return User.create(data)
 }
@@ -44,4 +48,4 @@ const updateUser = (id, data) => {
     return User.update(data, {where:{id: id}})
 } 
 
-module.exports = {fetchAllUsers, addUser, deletUser, updateUser, fetchOneUser}
+module.exports = {User, fetchAllUsers, addUser, deletUser, updateUser, fetchOneUser, fetchOneUseByName}

@@ -4,33 +4,23 @@ import React, { useEffect, useState } from 'react'
 const Search = (props) => {
 
     const [data, setData] = useState([])
-    const [users, setUsers] = useState([])
     const [user, setUser] = useState('')
 
     useEffect(async ()=> {
-        await axios("http://localhost:3000/users/fetch")
-        .then((result)=>{
-            setUsers(result.data)
-            console.log(result.data);
+        console.log(props.users[0].username)
+        const check = props.users.filter(e => {
+            return e.username === props.search
         })
-        .catch((err)=>{
-            console.log(err)
-        })
-        console.log(users)
-        const check = users.filter(e => {
-            return props.search === e.username
-        })
-        if(check){
-            // console.log(check);
-            // const id = check[0].id
-            // axios(`http://localhost:3000/users/fetch/${id}`) 
-            // .then((result)=>{
-            //     setData(result.data.posts)
-            //     setUser(result.data.username)
-            // })
-            // .catch((err)=>{
-            //     console.log(err);
-            // })
+        if(check.length){
+            const id = check[0].id
+            await axios(`http://localhost:3000/users/fetch/${id}`)
+            .then((result)=>{
+                setData(result.data.posts)
+                setUser(result.data.username)
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
         }
     }, [])
 

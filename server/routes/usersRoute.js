@@ -5,6 +5,8 @@ router.get('/fetch', controller.getAllUsers)
 
 router.get('/fetch/:id', controller.getOneUser)
 
+router.get('/fetchone', controller.getOneUserByName)
+
 router.post('/add', controller.addOneUser)
 
 router.put('/update/:id', controller.editUser)

@@ -55,4 +55,15 @@ const getOneUser = async (req, res) => {
     })
 }
 
-module.exports = {getAllUsers, addOneUser, editUser, deletOneUser, getOneUser}
+const getOneUserByName = async (req, res) => {
+    const name = req.body
+    await model.fetchOneUseByName(name)
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        res.status(500).json(err)
+    })
+}
+
+module.exports = {getAllUsers, addOneUser, getOneUserByName, editUser, deletOneUser, getOneUser}

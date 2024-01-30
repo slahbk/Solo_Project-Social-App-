@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts.jsx'
 import Create from './Create.jsx'
-import ProfilePage from './ProfilePage.jsx'
 
 const HomePage = (props) => {
 
@@ -10,8 +9,8 @@ const HomePage = (props) => {
     const [refresh, setRefresh] = useState(true)
     const [search, setSearch] = useState('')
 
-    useEffect(()=>{
-      axios("http://localhost:3000/posts/fetch")
+    useEffect(async ()=>{
+      await axios("http://localhost:3000/posts/fetch")
         .then((result)=>{
           setData(result.data)
         })
@@ -20,6 +19,7 @@ const HomePage = (props) => {
   return (
     <div>
         <nav>
+          <div className='search-bar'>
             <input 
             type="text" 
             id='search' 
@@ -29,10 +29,14 @@ const HomePage = (props) => {
             <button
               onClick={()=> props.changeView('search', search)}
             >Search</button>
+          </div>
 
-            <button>Home</button>
+            <button
+              onClick={()=> setRefresh(!refresh)}
+            >Home</button>
 
             <button 
+              id='profile'
               onClick={()=> props.changeView('profile')}
             >profil
             </button>
@@ -40,7 +44,7 @@ const HomePage = (props) => {
         
         <Create setRefresh={setRefresh} refresh={refresh} changeView={props.changeView}/>
 
-        <AllPosts data={data}/>
+        <AllPosts data={data} users={props.users}/>
 
     </div>
   )

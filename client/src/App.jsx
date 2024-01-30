@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import SignIn from './components/SignIn.jsx'
 import SignUp from './components/SignUp.jsx'
@@ -11,7 +11,18 @@ import Search from './components/Search.jsx'
 const App = () => {
   const [view, setView] = useState('signin')
   const [search, setSearch] = useState('')
+  const [users, setUsers] = useState([])
   
+  useEffect(async () => {
+    await axios("http://localhost:3000/users/fetch")
+    .then((result)=>{
+        setUsers(result.data)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  },[])
+
   const changeView = (view, data) => {
     setView(view)
     setSearch(data)
@@ -28,10 +39,10 @@ const App = () => {
       return <ProfilePage changeView={changeView}/>
     }
     else if(view === 'search'){
-      return <Search changeView={changeView} search={search}/>
+      return <Search changeView={changeView} search={search} users={users}/>
     }
     else if((view === 'home') || (localStorage.getItem("id"))){
-      return <HomePage changeView={changeView}/>
+      return <HomePage changeView={changeView} users={users}/>
     }
   }
   

@@ -26,14 +26,16 @@ const Create = (props) => {
             id="body" 
             cols="30" 
             rows="10"
+            placeholder="what's on your mind..."
             onChange={e => setBody(e.target.value)}
             ></textarea>
         </label>
         
         <label htmlFor="image">
             <input 
-            type="file" 
-            accept='image/png, image/jpeg'
+            type="text" 
+            accept='*'
+            placeholder='image url...'
             onChange={e => setImage(e.target.value)}
             />
         </label>

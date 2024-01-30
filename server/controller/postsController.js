@@ -45,4 +45,15 @@ const updateOnePost = (req, res) => {
     })
 }
 
-module.exports = {getAllPosts, addOnePost, deletOnePost, updateOnePost}
+const getOnePost = (req, res) => {
+    const id = req.params.id
+    model.getOne(id)
+    .then((result)=>{
+        res.status(200).json(result)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
+
+module.exports = {getAllPosts, getOnePost, addOnePost, deletOnePost, updateOnePost}
