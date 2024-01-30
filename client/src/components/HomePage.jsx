@@ -27,13 +27,13 @@ const HomePage = (props) => {
             />
 
             <button
-              
+              onClick={()=> props.changeView('search', search)}
             >Search</button>
 
             <button>Home</button>
 
             <button 
-              onClick={()=> {return (<ProfilePage/>)}}
+              onClick={()=> props.changeView('profile')}
             >profil
             </button>
         </nav>

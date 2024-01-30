@@ -5,15 +5,16 @@ import SignUp from './components/SignUp.jsx'
 import HomePage from './components/HomePage.jsx'
 import axios from 'axios'
 import ProfilePage from './components/ProfilePage.jsx'
+import Search from './components/Search.jsx'
 
 
 const App = () => {
   const [view, setView] = useState('signin')
-  const [user, setUser] = useState('')
+  const [search, setSearch] = useState('')
   
-  const changeView = (view) => {
+  const changeView = (view, data) => {
     setView(view)
-    // setUser(user)
+    setSearch(data)
   }
   
   const renderView = () => {
@@ -23,14 +24,19 @@ const App = () => {
     else if(view === 'signup'){
       return <SignUp changeView={changeView}/>
     }
+    else if(view === 'profile'){
+      return <ProfilePage changeView={changeView}/>
+    }
+    else if(view === 'search'){
+      return <Search changeView={changeView} search={search}/>
+    }
     else if((view === 'home') || (localStorage.getItem("id"))){
-      return <HomePage user={user} changeView={changeView}/>
+      return <HomePage changeView={changeView}/>
     }
   }
   
   return (
     <div>
-
 
       {renderView()}
     </div>

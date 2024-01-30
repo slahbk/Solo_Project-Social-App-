@@ -6,12 +6,12 @@ const Create = (props) => {
     const [body, setBody] = useState('')
     const [image, setImage] = useState('')
 
-    const add = async (data) => {
+    const add = (data) => {
         const id = localStorage.getItem('id')
         try{
             axios.post(`http://localhost:3000/posts/add/${id}`, data)
-            props.setRefresh(!props.refresh)
             props.changeView('home')
+            props.setRefresh(!props.refresh)
         }
         catch(err) {
             console.log(err);
