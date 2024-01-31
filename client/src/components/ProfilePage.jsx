@@ -84,22 +84,22 @@ const ProfilePage = (props) => {
                   <div className='one-post-edit'>
                     <i
                       className="bi bi-x-lg"
-                      style={{cursor:"pointer", color:"red", marginLeft:"end"}}
+                      style={{cursor:"pointer", color:"red", float:"right"}}
                       onClick={()=> delet(e.id)}
                     >
                     </i>
                     
                     <i
                       className="bi bi-pencil-fill"
-                      style={{cursor:"pointer", color:"black"}}
+                      style={{cursor:"pointer", color:"black", float:"right", marginRight:"20px"}}
                       onClick={()=> {
                         props.setOneData(e)
                         props.changeView('onepost', user)}}
                     ></i>
-                  </div>
-
                     <p>{e.body}</p>
                     <img src={e.image} alt="image" />
+                  </div>
+
           </div>)
         })}
       </div>

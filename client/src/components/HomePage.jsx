@@ -57,7 +57,6 @@ const HomePage = (props) => {
         <div className='search-bar'>
             <input 
             style={{marginRight:"20px"}}
-            // className='form-control mr-sm-2'
             type="text" 
             id='search'
             placeholder='search'
