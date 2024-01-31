@@ -8,14 +8,14 @@ const Create = (props) => {
 
     const add = (data) => {
         const id = localStorage.getItem('id')
-        try{
             axios.post(`http://localhost:3000/posts/add/${id}`, data)
-            props.changeView('home')
-            props.setRefresh(!props.refresh)
-        }
-        catch(err) {
-            console.log(err);
-        }
+            .then(()=>{
+                props.changeView('home')
+                props.setRefresh(!props.refresh)
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
   return (
