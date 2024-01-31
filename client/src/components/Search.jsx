@@ -26,26 +26,55 @@ const Search = (props) => {
 
   return (
     <div>
-        <nav>
+        <header>
+        <h3 className='logo'>LOGO</h3>
+        <nav >
+          <ul className='nav__links'>
+            <li>
+              <i
+                className='bi bi-house-fill'
+                style={{cursor:"pointer"}}
+                onClick={()=>  props.changeView('home')}
+              >
+              </i>
+            </li>
 
-            <button
-              onClick={()=> props.changeView('home')}
-            >Home</button>
+            <li>
+              <i 
+                id='profile'
+                className='bi bi-person-circle'
+                style={{cursor:"pointer"}}
+                onClick={()=> props.changeView('profile')}
+              >
+              </i>
+            </li>
 
-            <button 
-              onClick={()=> {props.changeView('profile')}}
-            >profil
-            </button>
+            <li>
+              <i
+                className='bi bi-box-arrow-right'
+                style={{cursor:"pointer"}}
+                onClick={()=> {
+                  props.changeView('signin')
+                  localStorage.removeItem('id')
+                }}>
+              </i>
+            </li>
+          </ul>
         </nav>
+        <h4 style={{color:"white"}}>search for, "{user}"</h4>
+
+      </header>
+        <div className='search-box'>
         {data.map((e, i)=> {
             return (
-                <div key={i}>
-            <h4>{user}</h4>
-            <p>{e.body}</p>
-            <img src={e.image} alt="image" />
-        </div>
+                <div key={i}  className='search-box-one'>
+                    <h4 className='card-header'>{user}</h4>
+                    <p>{e.body}</p>
+                    <img src={e.image} alt="image" />
+                </div>
             )
         })}
+        </div>
     </div>
   )
 }

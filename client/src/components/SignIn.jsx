@@ -24,7 +24,7 @@ const SignIn = (props) => {
       }
 
   return (
-    <div>
+    <div className='signin-page'>
         <label htmlFor="username">username
             <input 
             type="text"
@@ -36,14 +36,16 @@ const SignIn = (props) => {
 
         <label htmlFor="psw">password
             <input
-            type='text'
+            type='password'
             placeholder='password'
             required
             onChange={e => setPassword(e.target.value)}
             />
         </label>
         <p></p>
-        <a onClick={()=> props.changeView('signup')}>Sign Up</a>
+        <a 
+          style={{cursor:"pointer"}}
+          onClick={()=> props.changeView('signup')}>Sign Up</a>
 
         <button onClick={()=>{
             checkUser({username: username, password: password})

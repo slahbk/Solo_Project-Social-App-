@@ -1,11 +1,60 @@
-nav{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+    
+}
+
+li ,i, button{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: aliceblue;
+    text-decoration: none;
+}
+
+header{
+    background-color: #24252A;
+    position: fixed;
     width: 100%;
-    height: fit-content;
-    margin-bottom: 20px;
-    background-color: rgb(72, 70, 191);
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    align-content: center;
-    padding: 10px;
+    padding: 30px 10%;
+    border: 2px solid rgb(46, 41, 41);
+    z-index: 1;
+}
+
+.logo{
+    cursor: pointer;
+    color: white;
+}
+
+.nav__links{
+    list-style: none;
+}
+
+.nav__links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+i{
+    font-size: x-large;
+}
+
+.nav__links li i:hover{
+    color: #336698;
+}
+
+body{
+    background-image: url("../../image/social_media_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav .search-bar {
@@ -17,10 +66,134 @@ nav .search-bar {
 }
 
 .header-post button {
-
     height: max-content;
 }
 
 img {
-    max-width: 30%;
+    width: 60%;
+    height: 70%;
+}
+
+.container-one{
+    width: 40%;
+    height: 50%;
+    background-color: #869aae;
+    color: aliceblue;
+    margin-left: 30%;
+    align-items: center;
+}
+
+.home-profil-block{
+    position: absolute;
+    display: inline-flex;
+}
+
+.home-profil-block i {
+    margin-left: 20px;
+    font-size: xx-large;
+}
+
+/* .nav-profil i {
+    background-color: rgb(72, 70, 191);
+    margin-left: 20px;
+    font-size: xx-large;
+
+} */
+
+.nav-profil{
+    background-color: rgb(72, 70, 191);
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+/* .container-all{
+    background-color: #242526;
+} */
+
+input{
+    background-color: white;
+}
+
+.signin-page, .signup-page{
+    border-radius: 5cap;
+    background-color: #1d4a76;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 26px;
+    margin-left: 33%;
+    margin-top: 25%;
+    color: aliceblue;
+}
+
+.signin-page button, .signup-page button{
+    max-width: fit-content;
+    color: black;
+}
+
+.signin-page input, .signup-page input{
+    margin: 10px;
+    border-style: none;
+}
+
+.create-allposts-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+    border-style: solid;
+    width: fit-content;
+    margin-left: 300px;
+}
+
+.create-allposts-block input{
+    background-color: #869aae;
+    border-style: none;
+}
+
+.image-center img{
+    margin-left: 20%;
+}
+
+p{
+    font-family:'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+h6{
+    color: #1d4a76;
+}
+
+.profile-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+.search-box{
+    margin-left: 20%;
+    padding-top: 10%;
+}
+
+.search-box-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: groove;
+    margin-right: 20%;
+    background-color: lightskyblue;
+    margin-bottom: 50px;
+    border-radius: 2cap;
+}
+
+.search-box-one img{
+    width: 50%;
+    height: auto;
 }

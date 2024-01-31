@@ -19,17 +19,17 @@ const Create = (props) => {
     }
 
   return (
-    <div>
+    <div className='create-box'>
         <label htmlFor="body">
             <textarea 
             name="body" 
             id="body" 
-            cols="30" 
-            rows="10"
+            cols="60" 
+            rows="5"
             placeholder="what's on your mind..."
             onChange={e => setBody(e.target.value)}
             ></textarea>
-        </label>
+        </label><br />
         
         <label htmlFor="image">
             <input 
@@ -41,6 +41,7 @@ const Create = (props) => {
         </label>
 
         <button
+            style={{color:"white", borderRadius:"10cap", borderStyle:"none", backgroundColor:"GrayText"}}
             onClick={() => add({body: body, image: image})}
         >Publish</button>
     </div>

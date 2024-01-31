@@ -27,8 +27,7 @@ const SignUp = (props) => {
     }
 
   return (
-    <div>
-
+    <div className='signup-page'>
         <label htmlFor="username">username
             <input 
             type="text"
@@ -38,7 +37,7 @@ const SignUp = (props) => {
             />
         </label>
 
-        <label htmlFor="email">
+        <label htmlFor="email">Email
             <input 
             type='text'
             placeholder='email'
@@ -61,6 +60,9 @@ const SignUp = (props) => {
             create({username: username, email: email, password: password})
         }}> sign up
         </button>
+        <a 
+          style={{cursor:"pointer"}}
+          onClick={()=> props.changeView('signin')}>Already have an account, Sign in</a>
 
     </div>
   )

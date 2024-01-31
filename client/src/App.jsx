@@ -6,12 +6,14 @@ import HomePage from './components/HomePage.jsx'
 import axios from 'axios'
 import ProfilePage from './components/ProfilePage.jsx'
 import Search from './components/Search.jsx'
+import OnePost from './components/OnePost.jsx'
 
 
 const App = () => {
   const [view, setView] = useState('signin')
   const [search, setSearch] = useState('')
   const [users, setUsers] = useState([])
+  const [oneData, setOneData] = useState(null)
   
   useEffect(async () => {
     await axios("http://localhost:3000/users/fetch")
@@ -36,10 +38,13 @@ const App = () => {
       return <SignUp changeView={changeView}/>
     }
     else if(view === 'profile'){
-      return <ProfilePage changeView={changeView}/>
+      return <ProfilePage changeView={changeView} setOneData={setOneData}/>
     }
     else if(view === 'search'){
       return <Search changeView={changeView} search={search} users={users}/>
+    }
+    else if(view === 'onepost'){
+      return <OnePost changeView={changeView} oneData={oneData} search={search}/>
     }
     else if((view === 'home') || (localStorage.getItem("id"))){
       return <HomePage changeView={changeView} users={users}/>
@@ -48,7 +53,6 @@ const App = () => {
   
   return (
     <div>
-
       {renderView()}
     </div>
   )

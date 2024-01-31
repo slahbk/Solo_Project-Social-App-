@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import OnePost from './OnePost.jsx';
 
 const ProfilePage = (props) => {
 
@@ -23,10 +24,6 @@ const ProfilePage = (props) => {
         })
     }, [refresh])
 
-    const update = (data) => {
-
-    }
-
     const delet = (id) => {
       axios.delete(`http://localhost:3000/posts/delete/${id}`)
       .then(()=>{
@@ -40,69 +37,72 @@ const ProfilePage = (props) => {
     
   return (
     <div>
-        <nav>
-            <button
-              onClick={()=> props.changeView('home')}
-            >Home</button>
 
-            <button 
-              onClick={()=> {
-                setRefresh(!refresh)
-                props.changeView('profile')}
-              }
-            >profil
-            </button>
+      <header>
+        <h3 className='logo'>LOGO</h3>
+        <nav >
+          <ul className='nav__links'>
+            <li>
+              <i
+                className='bi bi-house-fill'
+                style={{cursor:"pointer"}}
+                onClick={()=>  props.changeView('home')}
+              >
+              </i>
+            </li>
+
+            <li>
+              <i 
+                id='profile'
+                className='bi bi-person-circle'
+                style={{cursor:"pointer"}}
+                onClick={()=> props.changeView('profile')}
+              >
+              </i>
+            </li>
+
+            <li>
+              <i
+                className='bi bi-box-arrow-right'
+                style={{cursor:"pointer"}}
+                onClick={()=> {
+                  props.changeView('signin')
+                  localStorage.removeItem('id')
+                }}>
+              </i>
+            </li>
+          </ul>
         </nav>
-      {data.map((e, i) => {
-        return (
-            <div key={i}>
-              {clicked ?
-              <>
-              <div className='header-post'>
-                <h4>{user}</h4>
-                <button
-                  onClick={()=> delet(e.id)}
-                >delete</button>
-                <button
-                  onClick={()=> setClicked(!clicked)}
-                >Update</button>
-              </div>
+        <h4 style={{color:"white"}}>Welcome, {user}</h4>
 
-                <p>{e.body}</p>
-                <img src={e.image} alt="image" />  
-              </>
-              : 
-              <>
-                <label htmlFor="body">
-                  <textarea 
-                  name="body" 
-                  id="body" 
-                  cols="30" 
-                  rows="10"
-                  placeholder="what's on your mind..."
-                  defaultValue={e.body}
-                  onChange={e => setBody(e.target.value)}
-                  ></textarea>
-                </label>
-        
-                <label htmlFor="image">
-                    <input 
-                    type="text" 
-                    accept='*'
-                    placeholder='image url...'
-                    defaultValue={e.image}
-                    onChange={e => setImage(e.target.value)}
-                    />
-                </label>
+      </header>
 
-                <button
-                  onClick={()=> update({body: body, image: image})}
-                >Ok</button>
-              </>
-            }
-              
-        </div>)
-      })}
+      <div className='profile-box'>
+        {data.map((e, i) => {
+          return (
+              <div key={i}  className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat"}}>
+                  <div className='one-post-edit'>
+                    <i
+                      className="bi bi-x-lg"
+                      style={{cursor:"pointer", color:"red", marginLeft:"end"}}
+                      onClick={()=> delet(e.id)}
+                    >
+                    </i>
+                    
+                    <i
+                      className="bi bi-pencil-fill"
+                      style={{cursor:"pointer", color:"black"}}
+                      onClick={()=> {
+                        props.setOneData(e)
+                        props.changeView('onepost', user)}}
+                    ></i>
+                  </div>
+
+                    <p>{e.body}</p>
+                    <img src={e.image} alt="image" />
+          </div>)
+        })}
+      </div>
     </div>
   )
 }
