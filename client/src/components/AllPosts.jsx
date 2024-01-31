@@ -6,7 +6,7 @@ const AllPosts = (props) => {
     <div>
         {props.data.map((e,i)=>{
             return (
-                <div key={i} className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat"}}>
+                <div key={i} className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat", marginTop:"5%"}}>
                     {props.users.map((ele, index) => {
                         if(ele.id === e.userId){
                         return (

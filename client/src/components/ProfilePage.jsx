@@ -82,20 +82,24 @@ const ProfilePage = (props) => {
           return (
               <div key={i}  className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat"}}>
                   <div className='one-post-edit'>
-                    <i
-                      className="bi bi-x-lg"
-                      style={{cursor:"pointer", color:"red", float:"right"}}
-                      onClick={()=> delet(e.id)}
-                    >
-                    </i>
                     
-                    <i
-                      className="bi bi-pencil-fill"
-                      style={{cursor:"pointer", color:"black", float:"right", marginRight:"20px"}}
-                      onClick={()=> {
-                        props.setOneData(e)
-                        props.changeView('onepost', user)}}
-                    ></i>
+                    <div className='card-header' style={{height:"50px"}}>
+                      <i
+                        className="bi bi-x-lg"
+                        style={{cursor:"pointer", color:"red", float:"right"}}
+                        onClick={()=> delet(e.id)}
+                      >
+                      </i>
+                      
+                      <i
+                        className="bi bi-pencil-fill"
+                        style={{cursor:"pointer", color:"black", float:"right", marginRight:"20px"}}
+                        onClick={()=> {
+                          props.setOneData(e)
+                          props.changeView('onepost', user)}}
+                      ></i>
+
+                    </div>
                     <p>{e.body}</p>
                     <img src={e.image} alt="image" />
                   </div>

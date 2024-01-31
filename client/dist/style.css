@@ -9,7 +9,7 @@ body{
     
 }
 
-li ,i, button{
+li ,i{
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -55,6 +55,7 @@ body{
     background-image: url("../../image/social_media_2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 nav .search-bar {
@@ -93,13 +94,6 @@ img {
     font-size: xx-large;
 }
 
-/* .nav-profil i {
-    background-color: rgb(72, 70, 191);
-    margin-left: 20px;
-    font-size: xx-large;
-
-} */
-
 .nav-profil{
     background-color: rgb(72, 70, 191);
     display: flex;
@@ -107,12 +101,9 @@ img {
     align-content: center;
 }
 
-/* .container-all{
-    background-color: #242526;
-} */
-
 input{
-    background-color: white;
+    background-color: rgb(243, 233, 233);
+    color: black;
 }
 
 .signin-page, .signup-page{
@@ -149,11 +140,13 @@ input{
     border-style: solid;
     width: fit-content;
     margin-left: 300px;
+    margin-right: 20%;
 }
 
 .create-allposts-block input{
     background-color: #869aae;
     border-style: none;
+
 }
 
 .image-center img{
@@ -170,11 +163,10 @@ h6{
 }
 
 .profile-box{
-    display: flex;
+     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 10%;
+    margin: 0 20% 0 20%;
+    padding-top: 15%;
 }
 
 .search-box{

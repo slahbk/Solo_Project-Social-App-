@@ -22,10 +22,11 @@ const Create = (props) => {
     <div className='create-box'>
         <label htmlFor="body">
             <textarea 
+            style={{borderRadius:"10px"}}
             name="body" 
             id="body" 
             cols="60" 
-            rows="5"
+            rows="3"
             placeholder="what's on your mind..."
             onChange={e => setBody(e.target.value)}
             ></textarea>
@@ -33,15 +34,28 @@ const Create = (props) => {
         
         <label htmlFor="image">
             <input 
+            style={{color:"black",
+                width:"400px",
+                marginLeft:"25px",
+                marginTop:"15px",
+                borderRadius:'10px'
+            }}
             type="text" 
             accept='*'
             placeholder='image url...'
             onChange={e => setImage(e.target.value)}
             />
-        </label>
+        </label><br />
 
         <button
-            style={{color:"white", borderRadius:"10cap", borderStyle:"none", backgroundColor:"GrayText"}}
+            style={{color:"white",
+                borderRadius:"10cap",
+                color:"black",
+                borderStyle:"none",
+                backgroundColor:"GrayText",
+                float:"right",
+                marginTop:"15px"
+            }}
             onClick={() => add({body: body, image: image})}
         >Publish</button>
     </div>

@@ -28,7 +28,7 @@ const SignUp = (props) => {
 
   return (
     <div className='signup-page'>
-        <label htmlFor="username">username
+        <label htmlFor="username">
             <input 
             type="text"
             placeholder='username'
@@ -37,7 +37,7 @@ const SignUp = (props) => {
             />
         </label>
 
-        <label htmlFor="email">Email
+        <label htmlFor="email">
             <input 
             type='text'
             placeholder='email'
@@ -47,7 +47,7 @@ const SignUp = (props) => {
 
         </label>
 
-        <label htmlFor="psw">password
+        <label htmlFor="psw">
             <input
             type='text'
             placeholder='password'

@@ -58,28 +58,29 @@ const OnePost = (props) => {
 
       </header>
 
-      <div className='create-allposts-block' style={{marginLeft:"30%", padding:"15%"}}>
+      <div className='create-allposts-block' style={{marginLeft:"40%"}}>
         <label htmlFor="body">
             <textarea 
             name="body" 
             id="body" 
             cols="30" 
-            rows="10"
-            placeholder="what's on your mind..."
+            rows="5"
+            placeholder="update the body..."
             onChange={e => setBody(e.target.value)}
             ></textarea>
         </label><br />
-        
+
         <label htmlFor="image">
             <input 
             type="text" 
             accept='*'
-            placeholder='image url...'
+            placeholder='update th image url...'
             onChange={e => setImage(e.target.value)}
             />
         </label>
 
         <button
+            style={{borderRadius:"10px"}}
             onClick={() => add(props.oneData.id, {body: body, image: image})}
         >Publish</button>
       </div>

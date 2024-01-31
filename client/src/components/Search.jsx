@@ -64,13 +64,13 @@ const Search = (props) => {
         <h4 style={{color:"white"}}>search for, "{user}"</h4>
 
       </header>
-        <div className='search-box'>
+        <div className='profile-box'>
         {data.map((e, i)=> {
             return (
-                <div key={i}  className='search-box-one'>
-                    <h4 className='card-header'>{user}</h4>
+                <div key={i}  className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat"}}>
+                    <h4 className='card-header'><i className="bi bi-person-circle" style={{marginRight:"20px"}}></i>{user}</h4>
                     <p>{e.body}</p>
-                    <img src={e.image} alt="image" />
+                    <img src={e.image} alt="image" style={{marginLeft:"160px"}}/>
                 </div>
             )
         })}
