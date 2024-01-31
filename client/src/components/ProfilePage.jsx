@@ -7,9 +7,6 @@ const ProfilePage = (props) => {
     const [data, setData] = useState([])
     const [user, setUser] = useState('')
     const [refresh, setRefresh] = useState(true)
-    const [clicked, setClicked] =useState(true)
-    const [body, setBody] = useState('')
-    const [image, setImage] = useState('')
 
     useEffect(()=>{
         const id = localStorage.getItem("id")

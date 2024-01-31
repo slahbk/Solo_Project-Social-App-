@@ -82,9 +82,10 @@ const OnePost = (props) => {
         <button
             style={{borderRadius:"10px"}}
             onClick={() => add(props.oneData.id, {body: body, image: image})}
-        >Publish</button>
+        >Update</button>
       </div>
     </div>
   )
 }
+
 export default OnePost

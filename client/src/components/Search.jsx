@@ -26,7 +26,7 @@ const Search = (props) => {
 
   return (
     <div>
-        <header>
+      <header>
         <h3 className='logo'>LOGO</h3>
         <nav >
           <ul className='nav__links'>
@@ -65,17 +65,17 @@ const Search = (props) => {
 
       </header>
         <div className='profile-box'>
-        {data.map((e, i)=> {
-            return (
-                <div key={i}  className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat"}}>
-                    <h4 className='card-header'><i className="bi bi-person-circle" style={{marginRight:"20px"}}></i>{user}</h4>
-                    <p>{e.body}</p>
-                    <img src={e.image} alt="image" style={{marginLeft:"160px"}}/>
-                </div>
-            )
-        })}
+          {data.map((e, i)=> {
+              return (
+                  <div key={i}  className='card mb-3' style={{backgroundColor:"#24252A", color:"wheat"}}>
+                      <h4 className='card-header'><i className="bi bi-person-circle" style={{marginRight:"20px"}}></i>{user}</h4>
+                      <p>{e.body}</p>
+                      <img src={e.image} alt="image" style={{marginLeft:"160px"}}/>
+                  </div>
+              )
+          })}
         </div>
-    </div>
+   </div>
   )
 }
 

@@ -24,6 +24,9 @@ const SignUp = (props) => {
             }
             else alert('username or email already exist')
         })
+        .catch((err)=>{
+            console.log(err);
+        })
     }
 
   return (
@@ -49,7 +52,7 @@ const SignUp = (props) => {
 
         <label htmlFor="psw">
             <input
-            type='text'
+            type='password'
             placeholder='password'
             required
             onChange={e => setPassword(e.target.value)}
@@ -60,9 +63,11 @@ const SignUp = (props) => {
             create({username: username, email: email, password: password})
         }}> sign up
         </button>
+
         <a 
           style={{cursor:"pointer"}}
-          onClick={()=> props.changeView('signin')}>Already have an account, Sign in</a>
+          onClick={()=> props.changeView('signin')}>Already have an account, Sign in
+        </a>
 
     </div>
   )
